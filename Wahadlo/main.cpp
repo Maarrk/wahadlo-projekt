@@ -13,7 +13,7 @@ using namespace std;
 double g = 9.81;//przyspieszenie grawitacyjne
 double l = 1;//d³ugoœæ wahad³a
 
-void rhs(double x, double y[], double out[]);
+void rhs(double x, double y[], double out[]);//funkcja licz¹ca prawe strony równañ
 
 int main() {
 	ofstream fout = ofstream("output.txt");
@@ -32,7 +32,7 @@ int main() {
 	y[0][1] = om0;
 
 	for (int i = 0; t0 + i*h < tf; i++) {
-		vrk4(t0 + i*h, y[i], h, N, rhs, y[i + 1]);
+		vrk4(t0 + i*h, y[i], h, N, rhs, y[i + 1]);//krok ca³kowania
 	}
 
 	for (int i = 0; i < 100; i++) {
@@ -44,6 +44,6 @@ int main() {
 }
 
 void rhs(double x, double y[], double out[]) {
-	out[0] = y[1];//omega
-	out[1] = -g / l*sin(y[0]);//alfa
+	out[0] = y[1];//alfa'
+	out[1] = -g / l*sin(y[0]);//omega'
 }
