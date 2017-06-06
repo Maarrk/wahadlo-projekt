@@ -2,7 +2,7 @@
 title: "Wahadło matematyczne"
 author: "Marek Łukasiewicz"
 date: "czerwiec 2017"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -59,7 +59,7 @@ $$ e_m = \frac{E_m}{m} = \frac{E_p + E_k}{m} = g \cdot l \cdot \Big(1 - cos(\alp
 
 Przyspieszenie ziemskie $g = 9,81 [\frac{m}{s^2}]$, wahadło długości $l = 1[m]$, o początkowym wychyleniu $\alpha_0 = \frac{\pi}{3} = 60^\circ$, bez nadanej prędkości początkowej
 
-```{r mydata, echo=FALSE}
+```{r mydata, echo=FALSE, fig.width = 8, fig.height = 4.5}
 mydata = read.table("../Wahadlo/output.txt", header = TRUE)
 plot(mydata["t"]$t, mydata["alfa"]$alfa, type="o", xlab="Czas [s]", ylab="Wychylenie [rad]")
 lines(mydata["t"]$t, rep(0, 100))
@@ -69,13 +69,11 @@ plot(mydata["t"]$t, mydata["energia"]$energia, type="o", xlab="Czas [s]", ylab="
 lines(mydata["t"]$t, rep(0, 100))
 ```
 
-\pagebreak
-
 ### Zestaw 2:
 
 Przyspieszenie ziemskie $g = 9,81 [\frac{m}{s^2}]$, wahadło długości $l = 3[m]$, o początkowym wychyleniu $\alpha_0 = \frac{\pi}{6} = 30^\circ$, z nadaną początkową prędkością $\omega_0 = \frac{\pi}{4} [\frac{1}{s}] = 45^\circ [\frac{1}{s}]$
 
-```{r mydata2, echo=FALSE}
+```{r mydata2, echo=FALSE, fig.width = 8, fig.height = 4.5}
 mydata2 = read.table("../Wahadlo/output2.txt", header = TRUE)
 plot(mydata2["t"]$t, mydata2["alfa"]$alfa, type="o", xlab="Czas [s]", ylab="Wychylenie [rad]")
 lines(mydata2["t"]$t, rep(0, 100))
