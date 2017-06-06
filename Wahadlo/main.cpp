@@ -11,7 +11,7 @@ using namespace std;
 #define ITER 110 //maksymalna iloœæ kroków ca³kowania
 
 double g = 9.81;//przyspieszenie grawitacyjne
-double l = 1;//d³ugoœæ wahad³a
+double l = 3;//d³ugoœæ wahad³a
 
 void rhs(double x, double y[], double out[]);//funkcja licz¹ca prawe strony równañ
 double e_mech(double al, double om);//zwraca energiê mechaniczn¹ na kg masy
@@ -23,7 +23,7 @@ int main() {
 	double tf = 10;//koñcowy czas
 
 	double al0 = M_PI / 6;//pocz¹tkowe wychylenie
-	double om0 = 0;//pocz¹tkowa prêdkoœæ k¹towa
+	double om0 = M_PI / 4;//pocz¹tkowa prêdkoœæ k¹towa
 
 	cout << "Podaj dlugosc wahadla:\n";
 	cin >> l;
@@ -43,13 +43,13 @@ int main() {
 		vrk4(t0 + i*h, y[i], h, N, rhs, y[i + 1]);//krok ca³kowania
 	}
 
-	fout << "t\talfa\tomega\tenergia\n";
+	cout << "t\talfa\tomega\tenergia\n";
 	for (int i = 0; i < 100; i++) {
-		fout << t0 + i*h << "\t" << y[i][0] << "\t" << y[i][1] << "\t" << e_mech(y[i][0], y[i][1]) << endl;
+		cout << t0 + i*h << "\t" << y[i][0] << "\t" << y[i][1] << "\t" << e_mech(y[i][0], y[i][1]) << endl;
 	}
 
-	system("notepad output.txt");
-	//system("pause");
+	//system("notepad output.txt");
+	system("pause");
 	return 0;
 }
 
