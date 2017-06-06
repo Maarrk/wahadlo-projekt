@@ -1,0 +1,25 @@
+---
+title: "Wahadło matematyczne"
+author: "Marek Łukasiewicz"
+date: "6 czerwca 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Techniki komputerowe II - zadanie domowe nr 2
+
+*Zadanie:* znaleźć różniczkowe równania ruchu wahadła matematycznego o dużym wychyleniu tzn. $\sin(\alpha) \neq \alpha$
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r mydata, echo=FALSE}
+mydata = read.table("../Wahadlo/output.txt", header = TRUE)
+plot(mydata["t"]$t, mydata["alfa"]$alfa, type="o", xlab="Czas [s]", ylab="Wychylenie [rad]")
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
