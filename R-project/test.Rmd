@@ -87,6 +87,8 @@ lines(mydata2["t"]$t, rep(0, 100))
 
 ## Kod źródłowy rozwiązania
 
+Kod źródłowy dostępny też pod adresem: https://github.com/Maarrk/wahadlo-projekt
+
 ### Plik main.cpp:
 
 ```
